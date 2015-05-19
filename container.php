@@ -52,19 +52,27 @@ $container = array(
 
 echo "Evaluation Maxime Butin";
 
+function Pourcentage($Poid_Reel, $Poid_Max) {
+$pourcent = $Poid_Reel * 100 / $Poid_Max;
+$pourcent = ceil($pourcent).'%';
+return $pourcent;
+}
 ?>
+
 <table>
 		<tr>
 			<th>Identifiant</th>	
 			<th>Poids Max</th>	
 			<th>Poids Reel</th>		
-			<th>Type de contenu</th>	
+			<th>Type de contenu</th>
+			<th>Taux</th>	
 		</tr>
 		<?php foreach ($container as $key => $value) { ?>
 			<td><?php echo $value ["ID"];?></td>
 			<td><?php echo $value ["Poid_Max"];?> </td>
 			<td><?php echo $value ["Poid_Reel"];?></td>
 			<td><?php echo $value ["Type_Contenu"];?></td>
+			<td><?php echo Pourcentage ($value ["Poid_Reel"], $value ["Poid_Max"]);?></td>
 		</tr>
 
 <?php }
